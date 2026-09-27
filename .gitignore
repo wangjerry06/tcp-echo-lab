@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.idea/
+.DS_Store
+
+# 测试产物
+.coverage
+htmlcov/
