@@ -33,13 +33,13 @@
 
 **验收标准（Definition of Done）**：`python3 -m unittest discover -s tests -v` 全绿。
 
-### M2 select 并发版（⬜ 待做 —— 这就是你在 CodeBuddy 里的第一个任务）
+### M2 select 并发版（✅ 2026-09-27 由 CodeBuddy 实现，WorkBuddy 验收）
 
-- [ ] 新建 src/server_select.py：单线程 + select，fd 集合 = {listening fd} ∪ {connfds}
-- [ ] 就绪后先查 listening fd（新连接），再查各 connfd（数据）
-- [ ] recv 返回空时：close 并**从 select 集合摘掉该 fd**（新手 bug 重灾区！）
-- [ ] 迁移/复用 tests，新增并发测试：两个客户端同时连着、交替发消息互不卡死
-- [ ] 对比实验：开两个终端各跑一个 client，M1 版会互相卡（演示"client 1 吃午饭"病历），M2 版不会
+- [x] 新建 src/server_select.py：单线程 + select，fd 集合 = {listening fd} ∪ {connfds}
+- [x] 就绪后先查 listening fd（新连接），再查各 connfd（数据）
+- [x] recv 返回空时：close 并**从 select 集合摘掉该 fd**（新手 bug 重灾区！——已正确实现）
+- [x] 新增 tests/test_select.py：双客户端交替发消息互不卡死 / 断开后 fd 被摘 / 一退一留混合生命周期（7/7 全绿）
+- [ ] 对比实验（手动演练，留给老大）：开两个终端各跑一个 client，M1 版会互相卡（演示"client 1 吃午饭"病历），M2 版不会
 
 **验收标准**：并发测试全绿 + 你能口头讲清 select 循环每一轮在干什么。
 
