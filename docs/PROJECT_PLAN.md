@@ -43,11 +43,12 @@
 
 **验收标准**：并发测试全绿 + 你能口头讲清 select 循环每一轮在干什么。
 
-### M3 复盘交付（⬜）
+### M3 复盘交付（✅ 2026-09-27 由 WorkBuddy 完成）
 
-- [ ] 写对比总结：threading vs select 优缺点（对着清单第一节第 7 条自查）
-- [ ] `lsof -p <pid>` 观察 server 进程的 fd 表，截图存 docs/
-- [ ] README 更新，tag v0.1.0
+- [x] 写对比总结：threading vs select 优缺点 + 两大经典 bug + 进化链（docs/REVIEW.md）
+- [x] `lsof -p <pid>` 观察 server 进程的 fd 表（实测记录存 docs/REVIEW.md 第一节：FD 5 LISTEN + 8u/9u ESTABLISHED）
+- [x] README 更新（目录结构、M2 完成状态、复盘链接）
+- [x] tag v0.1.0
 
 ## 四、Git 约定
 
